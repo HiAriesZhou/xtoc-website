@@ -1,7 +1,8 @@
-import { Download, FileDown, Github, Highlighter, Library, LockKeyhole, Search, BookOpenText } from "lucide-react";
+import { FileDown, Github, Highlighter, Library, LockKeyhole, Search, BookOpenText } from "lucide-react";
 
-const chromeStoreUrl = "https://chromewebstore.google.com/detail/nbdgpckkcfkomnmdefinikjijgljgjfp?utm_source=item-share-cb";
-const extensionRepoUrl = "https://github.com/HiAriesZhou/x-toc";
+import { StoreLinks } from "@/components/store-links";
+import { extensionStores } from "@/lib/stores";
+const extensionRepoUrl = "https://github.com/HiAriesZhou/xtoc";
 const websiteRepoUrl = "https://github.com/HiAriesZhou/x-toc-landing-page";
 
 const steps = [
@@ -27,7 +28,7 @@ export function DocsMain() {
         <p className="eyebrow">How XTOC works</p>
         <h1>Read with structure. Keep useful context.</h1>
         <p>XTOC is an open-source browser extension for X (Twitter) Articles. It adds a table of contents and lets you save passages locally with tags and notes, then export them as Markdown or JSON.</p>
-        <div className="button-row"><a className="primary-button" href={chromeStoreUrl} target="_blank" rel="noopener noreferrer" aria-label="View XTOC in the Chrome Web Store; installation requires desktop Chrome"><span className="desktop-cta-copy">Add to Chrome</span><span className="mobile-cta-copy">Available for desktop Chrome</span><Download aria-hidden="true" /></a></div>
+        <div className="button-row"><StoreLinks /></div>
       </div>
     </section>
 
@@ -69,7 +70,7 @@ export function DocsMain() {
         <h2>Before you start</h2>
         <div className="docs-grid">
           <article className="doc-card"><h3>Does it work on every X post?</h3><p>No. XTOC works on supported long-form X/Twitter articles. A table of contents needs headings in the article; it does not turn ordinary posts into structured articles.</p></article>
-          <article className="doc-card"><h3>How do I open the table of contents?</h3><p>Open an article, then select XTOC in Chrome’s extensions menu. Open the outline in the popup and pin the floating panel to keep it beside the article.</p></article>
+          <article className="doc-card"><h3>How do I open the table of contents?</h3><p>Open an article, then select XTOC in your browser’s extensions menu. Open the outline in the popup and pin the floating panel to keep it beside the article.</p></article>
           <article className="doc-card"><h3>Where do my clips go?</h3><p>The extension keeps clips, tags, and notes in local browser storage. It does not upload saved clips or sync them between devices. Use Markdown or JSON export to keep a separate copy.</p></article>
           <article className="doc-card"><h3>Is this website my clip library?</h3><p>No. This website uses sample content for its interactive demo. Your actual library is in the extension’s Saved clips page.</p></article>
         </div>
@@ -80,7 +81,7 @@ export function DocsMain() {
       <div className="docs-shell">
         <p className="eyebrow">Project links</p>
         <h2>Source and maintenance</h2>
-        <div className="docs-links"><a href="/privacy">Privacy Policy</a><a href={extensionRepoUrl} target="_blank" rel="noopener noreferrer">Extension source</a><a href={websiteRepoUrl} target="_blank" rel="noopener noreferrer">Website source</a><a href={chromeStoreUrl} target="_blank" rel="noopener noreferrer">Chrome Web Store</a></div>
+        <div className="docs-links"><a href="/privacy">Privacy Policy</a><a href={extensionRepoUrl} target="_blank" rel="noopener noreferrer">Extension source</a><a href={websiteRepoUrl} target="_blank" rel="noopener noreferrer">Website source</a>{extensionStores.map((store) => <a key={store.browser} href={store.url} target="_blank" rel="noopener noreferrer">{store.name}</a>)}</div>
       </div>
     </section>
   </div>;

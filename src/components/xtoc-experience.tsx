@@ -5,15 +5,15 @@ import Link from "next/link";
 import type { MouseEvent } from "react";
 import { siteUrl, viewPaths, viewMeta } from "@/lib/seo";
 import {
-  ArrowLeft, ArrowRight, BookOpen, Bookmark, Check, ChevronUp, Download,
+  ArrowLeft, ArrowRight, BookOpen, Bookmark, Check, ChevronUp,
   FileText, Github, GripVertical, House, List, Play, RotateCcw, Scissors,
   X,
 } from "lucide-react";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { DocsMain, DocsRail } from "@/components/docs-view";
 
-const chromeStoreUrl = "https://chromewebstore.google.com/detail/nbdgpckkcfkomnmdefinikjijgljgjfp?utm_source=item-share-cb";
-const extensionRepoUrl = "https://github.com/HiAriesZhou/x-toc";
+import { StoreLinks } from "@/components/store-links";
+const extensionRepoUrl = "https://github.com/HiAriesZhou/xtoc";
 
 export type View = "home" | "article" | "clips" | "docs";
 
@@ -456,7 +456,7 @@ export function XtocExperience({ initialView }: { initialView: View }) {
           <a href={viewPaths.clips} aria-current={view === "clips" ? "page" : undefined} className={view === "clips" ? "active" : ""} onClick={(event) => navigateLink(event, "clips")}><Scissors aria-hidden="true" /><span>Clips</span>{userClipCount > 0 && <small>{userClipCount}</small>}</a>
           <a href={viewPaths.docs} aria-current={view === "docs" ? "page" : undefined} className={view === "docs" ? "active" : ""} onClick={(event) => navigateLink(event, "docs")}><BookOpen aria-hidden="true" /><span>Docs</span></a>
         </nav>
-        <a className="chrome-cta" href={chromeStoreUrl} target="_blank" rel="noopener noreferrer"><Download aria-hidden="true" />Add to Chrome</a>
+        <div className="sidebar-store-links"><StoreLinks /></div>
         <div className="sidebar-foot"><p>A more focused internet<br />for longer thinking.</p><small>Independent project. Not affiliated with X.</small><a href={extensionRepoUrl} target="_blank" rel="noopener noreferrer"><Github aria-hidden="true" /> Source on GitHub</a></div>
       </aside>
 
@@ -473,10 +473,10 @@ export function XtocExperience({ initialView }: { initialView: View }) {
         {view === "docs" && <DocsMain />}
 
         {view === "home" && <div className="timeline">
-          <article className="feed-post pinned-post"><p className="pinned-label"><Bookmark aria-hidden="true" /> Pinned</p><Image className="post-avatar" src="/logo.png" alt="" width={38} height={38} /><ProductAuthor /><p className="feed-copy">A map for the long reads you never finish.</p><p className="feed-muted">XTOC adds a table of contents to X Articles. Save passages locally with tags and notes, then export them as Markdown or JSON.</p><button ref={previewTrigger} className="product-film" onClick={() => setDemoOpen(true)} aria-label="Play the 40-second XTOC product film"><Image src="/videos/x-toc-poster.jpg" alt="An X article with the XTOC contents panel open" width={1920} height={1240} priority /><span className="film-play"><Play aria-hidden="true" /></span><span className="film-label">Watch XTOC in action · 0:40</span></button></article>
+          <article className="feed-post pinned-post"><p className="pinned-label"><Bookmark aria-hidden="true" /> Pinned</p><Image className="post-avatar" src="/logo.png" alt="" width={38} height={38} /><ProductAuthor /><p className="feed-copy">A map for the long reads you never finish.</p><p className="feed-muted">XTOC adds a table of contents to X Articles. Save passages locally with tags and notes, then export them as Markdown or JSON.</p><div className="feed-store-links"><StoreLinks compact /></div><button ref={previewTrigger} className="product-film" onClick={() => setDemoOpen(true)} aria-label="Play the 40-second XTOC product film"><Image src="/videos/x-toc-poster.jpg" alt="An X article with the XTOC contents panel open" width={1920} height={1240} priority /><span className="film-play"><Play aria-hidden="true" /></span><span className="film-label">Watch XTOC in action · 0:40</span></button></article>
           <article className="feed-post"><Image className="post-avatar" src="/logo.png" alt="" width={38} height={38} /><ProductAuthor /><p className="feed-copy">A new article on reading with structure.</p><ArticleCover onOpen={() => openView("article")} /></article>
           <article className="feed-post excerpt-post"><span className="post-avatar excerpt-avatar"><Scissors aria-hidden="true" /></span><p className="excerpt-meta">{userClipCount ? "You saved a clip" : "An excerpt worth keeping"} · Demo</p><blockquote>{clips[0]?.text ?? sampleClips[0].text}</blockquote><button className="text-action" onClick={() => openView("clips")}>Open in Clips <ArrowRight aria-hidden="true" /></button></article>
-          <article className="feed-post final-post"><Image className="post-avatar" src="/logo.png" alt="" width={38} height={38} /><ProductAuthor /><p className="feed-copy">A small tool for the moments when a long read deserves your full attention.</p><p className="feed-muted">An outline beside the article. Useful passages within reach. That’s XTOC.</p><a className="text-action" href={chromeStoreUrl} target="_blank" rel="noopener noreferrer">Take it to X <ArrowRight aria-hidden="true" /></a></article>
+          <article className="feed-post final-post"><Image className="post-avatar" src="/logo.png" alt="" width={38} height={38} /><ProductAuthor /><p className="feed-copy">A small tool for the moments when a long read deserves your full attention.</p><p className="feed-muted">An outline beside the article. Useful passages within reach. That’s XTOC.</p><StoreLinks compact /></article>
         </div>}
 
         {view === "article" && <article className="demo-article" onMouseUp={captureSelection} onKeyUp={captureSelection}>
@@ -583,7 +583,7 @@ export function XtocExperience({ initialView }: { initialView: View }) {
 
       {selection && <div className="selection-action"><span>{selection.length} characters selected</span><button onMouseDown={(event) => event.preventDefault()} onClick={saveSelection}><Scissors aria-hidden="true" /> Save to XTOC</button></div>}
       {toast && <div className="site-toast" role="status"><Check aria-hidden="true" />{toast}{toast.includes("saved") && <button onClick={() => openView("clips")}>View Clips</button>}</div>}
-      {demoOpen && <div className="demo-dialog-backdrop" onMouseDown={() => setDemoOpen(false)}><section className="product-film-dialog" role="dialog" aria-modal="true" aria-label="XTOC product film" onMouseDown={(event) => event.stopPropagation()}><header><span>XTOC / IN PRACTICE</span><button ref={previewClose} onClick={() => setDemoOpen(false)} aria-label="Close video"><X aria-hidden="true" /></button></header><video controls autoPlay playsInline preload="metadata" poster="/videos/x-toc-poster.jpg" aria-label="XTOC demonstration: article navigation, clipping, tags, notes, and export"><source src="/videos/x-toc-demo.mp4" type="video/mp4" /><track kind="captions" src="/videos/x-toc-demo.vtt" srcLang="en" label="English" />Your browser does not support video playback.</video><footer><a href={chromeStoreUrl} target="_blank" rel="noopener noreferrer">Get XTOC for desktop Chrome <Download aria-hidden="true" /></a><button onClick={() => { setDemoOpen(false); openView("article"); }}>Try it yourself <ArrowRight aria-hidden="true" /></button></footer></section></div>}
+      {demoOpen && <div className="demo-dialog-backdrop" onMouseDown={() => setDemoOpen(false)}><section className="product-film-dialog" role="dialog" aria-modal="true" aria-label="XTOC product film" onMouseDown={(event) => event.stopPropagation()}><header><span>XTOC / IN PRACTICE</span><button ref={previewClose} onClick={() => setDemoOpen(false)} aria-label="Close video"><X aria-hidden="true" /></button></header><video controls autoPlay playsInline preload="metadata" poster="/videos/x-toc-poster.jpg" aria-label="XTOC demonstration: article navigation, clipping, tags, notes, and export"><source src="/videos/x-toc-demo.mp4" type="video/mp4" /><track kind="captions" src="/videos/x-toc-demo.vtt" srcLang="en" label="English" />Your browser does not support video playback.</video><footer><StoreLinks compact /><button onClick={() => { setDemoOpen(false); openView("article"); }}>Try it yourself <ArrowRight aria-hidden="true" /></button></footer></section></div>}
     </div>
   );
 }

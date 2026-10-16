@@ -15,9 +15,11 @@
 
 This repository contains the public landing page and public docs for XTOC.
 
-- Extension source: <https://github.com/HiAriesZhou/x-toc>
+- Extension source: <https://github.com/HiAriesZhou/xtoc>
 - Website source: <https://github.com/HiAriesZhou/x-toc-landing-page>
 - Chrome Web Store: <https://chromewebstore.google.com/detail/nbdgpckkcfkomnmdefinikjijgljgjfp?utm_source=item-share-cb>
+- Microsoft Edge Add-ons: <https://microsoftedge.microsoft.com/addons/detail/hpgegkkfhicelbjniafajmpicdjjmakf>
+- Firefox Add-ons: <https://addons.mozilla.org/firefox/addon/xtoc-navigate-clip-x-articles/>
 
 ## Public Product Copy
 

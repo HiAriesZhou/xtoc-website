@@ -50,9 +50,15 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
 .site-sidebar nav button > span, .site-sidebar nav a > span, .site-sidebar nav svg { transition: color .18s ease; }
 .site-sidebar nav button:hover, .site-sidebar nav a:hover { background: var(--soft); }
 .site-sidebar nav small { min-width: 20px; height: 20px; margin-left: auto; display: grid; place-items: center; border-radius: 999px; color: white; background: var(--accent-text); font-size: .68rem; }
-.chrome-cta { min-height: 50px; margin-top: 28px; display: flex; align-items: center; justify-content: center; gap: 9px; border-radius: 999px; color: white; background: #0f1419; font-size: .88rem; font-weight: 700; }
-.chrome-cta svg { width: 18px; }
-.chrome-cta:hover { color: white; background: #0878c9; transform: translateY(-1px); }
+.store-links { display: flex; flex-wrap: wrap; gap: 10px; }
+.store-links svg { width: 16px; height: 16px; }
+.sidebar-store-links { margin-top: 28px; }
+.sidebar-store-links .store-links { display: grid; gap: 8px; }
+.sidebar-store-links .primary-button { justify-content: center; padding-inline: 10px; font-size: .85rem; }
+.store-links-compact { gap: 8px 18px; }
+.store-text-link { min-height: 44px; display: inline-flex; align-items: center; gap: 6px; color: var(--accent-text); font-size: .82rem; font-weight: 700; }
+.store-text-link:hover { text-decoration: underline; }
+.feed-store-links { margin-bottom: 14px; }
 .sidebar-foot { margin-top: auto; color: var(--muted-strong); font-size: .82rem; line-height: 1.55; }
 .sidebar-foot small { display: block; margin-top: 18px; font-size: .62rem; }
 .sidebar-foot a { display: inline-flex; align-items: center; gap: 6px; margin-top: 9px; font-size: .68rem; }
@@ -336,9 +342,9 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
 .product-film-dialog button { display: inline-flex; align-items: center; gap: 8px; min-height: 36px; }
 .product-film-dialog video { display: block; width: 100%; max-height: calc(100dvh - 180px); background: #f6f4f0; }
 .product-film-dialog > footer { font-size: .8rem; flex-wrap: wrap; }
-.product-film-dialog > footer > a { display: inline-flex; align-items: center; gap: 8px; min-height: 36px; color: var(--muted-strong); }
-.product-film-dialog > footer > a:hover { color: var(--accent-text); }
-.product-film-dialog > footer > a > svg { width: 16px; height: 16px; flex-shrink: 0; }
+.product-film-dialog > footer .store-text-link { display: inline-flex; align-items: center; gap: 8px; min-height: 36px; color: var(--muted-strong); }
+.product-film-dialog > footer .store-text-link:hover { color: var(--accent-text); }
+.product-film-dialog > footer .store-text-link > svg { width: 16px; height: 16px; flex-shrink: 0; }
 .product-film-dialog > footer > button { color: var(--accent-text); }
 @media (max-width: 640px) { .product-film-dialog > footer { gap: 4px 16px; } }
 .demo-dialog { position: relative; width: min(620px, 100%); padding: 34px; border-radius: 12px; background: white; box-shadow: 0 22px 70px rgba(0,0,0,.2); }
@@ -420,7 +426,7 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
   html { scroll-behavior: auto; }
   .playground-shell { display: block; padding-bottom: 66px; }
   .site-sidebar { position: fixed; top: auto; bottom: 0; z-index: 70; width: 100%; height: 66px; display: block; padding: 0; border-top: 1px solid var(--line); background: white; }
-  .site-brand, .site-sidebar > .chrome-cta, .sidebar-foot { display: none; }
+  .site-brand, .sidebar-store-links, .sidebar-foot { display: none; }
   .site-sidebar nav { height: 65px; margin: 0; padding: 0 5px; display: flex; align-items: stretch; justify-content: space-around; border: 0; }
   .site-sidebar nav button, .site-sidebar nav a { min-width: 60px; min-height: 0; display: flex; flex-direction: column; justify-content: center; gap: 3px; padding: 5px; border-radius: 0; font-size: .62rem; }
   .site-sidebar nav button::before, .site-sidebar nav a::before { top: 0; right: 18px; bottom: auto; left: 18px; width: auto; height: 3px; transform: scaleX(.25); }

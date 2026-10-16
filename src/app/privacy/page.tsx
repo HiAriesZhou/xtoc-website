@@ -53,7 +53,7 @@ export default function PrivacyPage() {
         <section className={styles.section} aria-labelledby="transmission">
           <h2 id="transmission">04 / No telemetry or uploads</h2>
           <p>The extension includes no analytics, advertising trackers, or remote error reporting. It does not transmit article content, saved clips, tags, notes, or usage activity to the developer or an external server, and it does not sell or share that data. There is no XTOC backend or automatic cross-device synchronization for clips.</p>
-          <p>Normal requests made by X/Twitter and Chrome’s extension distribution and update services are separate from XTOC’s local processing.</p>
+          <p>Normal requests made by X/Twitter and browser extension stores and their update services are separate from XTOC’s local processing.</p>
         </section>
 
         <section className={styles.section} aria-labelledby="control">
@@ -70,12 +70,12 @@ export default function PrivacyPage() {
         <section className={styles.section} aria-labelledby="website">
           <h2 id="website">06 / This website and external links</h2>
           <p>This website is a product guide and interactive demo. It does not read your extension’s clip library. The demo uses sample content and does not connect to extension storage.</p>
-          <p>Visiting the website involves normal network requests to its hosting provider, Vercel; the extension’s local-only statement does not mean website visits are invisible to a hosting provider. Links to X/Twitter, GitHub, and the Chrome Web Store open services with their own privacy practices.</p>
+          <p>Visiting the website involves normal network requests to its hosting provider, Vercel; the extension’s local-only statement does not mean website visits are invisible to a hosting provider. Links to X/Twitter, GitHub, the Chrome Web Store, Microsoft Edge Add-ons, and Firefox Add-ons open services with their own privacy practices.</p>
         </section>
 
         <section className={styles.section} aria-labelledby="contact">
           <h2 id="contact">07 / Questions and policy changes</h2>
-          <p>For privacy questions, email <a href="mailto:aries0331.dev@email.com">aries0331.dev@email.com</a>. You can also inspect the <a href="https://github.com/HiAriesZhou/x-toc">extension source on GitHub</a>. Avoid posting private clips or personal data in public issues.</p>
+          <p>For privacy questions, email <a href="mailto:aries0331.dev@email.com">aries0331.dev@email.com</a>. You can also inspect the <a href="https://github.com/HiAriesZhou/xtoc">extension source on GitHub</a>. Avoid posting private clips or personal data in public issues.</p>
           <p>This policy will be updated when the extension’s data handling changes. The date above identifies the latest revision.</p>
         </section>
       </main>

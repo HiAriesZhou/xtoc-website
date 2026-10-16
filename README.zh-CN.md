@@ -15,9 +15,11 @@
 
 本仓库用于维护 XTOC 的公开 landing page 和公开文档。
 
-- 扩展源码：<https://github.com/HiAriesZhou/x-toc>
+- 扩展源码：<https://github.com/HiAriesZhou/xtoc>
 - 网站源码：<https://github.com/HiAriesZhou/x-toc-landing-page>
 - Chrome Web Store：<https://chromewebstore.google.com/detail/nbdgpckkcfkomnmdefinikjijgljgjfp?utm_source=item-share-cb>
+- Microsoft Edge 附加组件商店：<https://microsoftedge.microsoft.com/addons/detail/hpgegkkfhicelbjniafajmpicdjjmakf>
+- Firefox 附加组件商店：<https://addons.mozilla.org/firefox/addon/xtoc-navigate-clip-x-articles/>
 
 ## 公开产品文案
 
