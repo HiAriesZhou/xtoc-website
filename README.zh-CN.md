@@ -1,3 +1,6 @@
+> [!IMPORTANT]
+> 本仓库已归档。XTOC 网站已迁移到 [HiAriesZhou/xtoc](https://github.com/HiAriesZhou/xtoc) 仓库的 [`apps/web`](https://github.com/HiAriesZhou/xtoc/tree/main/apps/web) 目录，https://x-toc.vercel.app 由该目录部署。
+
 <h1 align="center">
   <img src="public/wordmark.svg" width="280" alt="XTOC"><br>
   Landing Page

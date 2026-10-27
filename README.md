@@ -1,3 +1,6 @@
+> [!IMPORTANT]
+> This repository is archived. The XTOC website now lives in [`apps/web`](https://github.com/HiAriesZhou/xtoc/tree/main/apps/web) in the [HiAriesZhou/xtoc](https://github.com/HiAriesZhou/xtoc) monorepo, which deploys https://x-toc.vercel.app.
+
 <h1 align="center">
   <img src="public/wordmark.svg" width="280" alt="XTOC"><br>
   Landing Page
